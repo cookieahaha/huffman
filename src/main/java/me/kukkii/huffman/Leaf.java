@@ -16,4 +16,8 @@ public class Leaf extends Node{
   public char getChar(){
     return c;
   }
+
+  public String toString(){
+    return c + ", " + sum;
+  }
 }

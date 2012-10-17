@@ -1,7 +1,7 @@
 package me.kukkii.huffman;
 import java.util.Set;
 
-public abstract class Node{
+public abstract class Node implements Comparable<Node>{
 
   protected Node right;
   protected Node left;
@@ -27,5 +27,7 @@ public abstract class Node{
     return charSet;
   }
 
-
+  public int compareTo(Node node){
+    return this.getSum() - node.getSum();
+  }
 }
