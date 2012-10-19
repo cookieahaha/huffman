@@ -28,6 +28,11 @@ public abstract class Node implements Comparable<Node>{
   }
 
   public int compareTo(Node node){
-    return this.getSum() - node.getSum();
+    if(this.getSum() == node.getSum()){
+      return this.hashCode() - node.hashCode();
+    }
+    else{
+      return this.getSum() - node.getSum();
+    }
   }
 }
