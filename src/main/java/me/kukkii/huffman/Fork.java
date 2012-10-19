@@ -17,7 +17,7 @@ public class Fork extends Node{
     for(char c : getCharSet()){
       s += c;
     }
-    return s + " " + sum;
+    return s + " " + "(" + sum + ")";
   }
  
 }

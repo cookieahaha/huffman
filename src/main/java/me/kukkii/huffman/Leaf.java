@@ -18,6 +18,6 @@ public class Leaf extends Node{
   }
 
   public String toString(){
-    return c + ", " + sum;
+    return c + " " + "(" + sum + ")";
   }
 }

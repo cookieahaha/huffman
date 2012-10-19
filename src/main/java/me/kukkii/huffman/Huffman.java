@@ -56,9 +56,7 @@ public class Huffman{
       treeSet.remove(y);
       fork = new Fork(y, x);
       treeSet.add(fork);
-      System.out.println(x.toString());
-      System.out.println(y.toString());
-      System.out.println(fork.toString());
+      System.out.println(x + "    " +  y + "    " +  fork);
     }
     return fork;
   }
