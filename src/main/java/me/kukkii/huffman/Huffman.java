@@ -10,7 +10,8 @@ public class Huffman{
 
   public static void main(String args[]){
     Node fork  = createTree(text);
-    List<Integer> list = encode(text, fork);
+    Encoder encoder = new Encoder(fork);
+    List<Integer> list = encoder.encode(text);
     for(int i : list){
       System.out.print(i);
     }
@@ -47,28 +48,5 @@ public class Huffman{
     }
     return fork;
   }
-
-  public static List<Integer> encode(String text, Node fork){
-    List<Integer> list = new ArrayList<Integer>();    
-    for(int i=0; i<text.length(); i++){
-      char c = text.charAt(i);
-      encodeChar(c, fork, list);
-    }
-    return list;
-  }
-
-  public static void encodeChar(char c, Node node, List<Integer> list){
-    if(node instanceof Leaf){
-      return;
-    }
-    else if(node.getLeft().getCharSet().contains(c)){
-      list.add(1);
-      encodeChar(c, node.getLeft(), list);
-    }
-    else{
-      list.add(0);
-      encodeChar(c, node.getLeft(), list);
-    }
-  } 
 
 }
