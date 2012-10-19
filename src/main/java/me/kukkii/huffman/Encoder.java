@@ -31,11 +31,11 @@ public class Encoder{
       return;
     }
     else if(node.getLeft().getCharSet().contains(c)){
-      list.add(1);
+      list.add(0);
       encodeChar(c, node.getLeft(), list);
     }
     else{
-      list.add(0);
+      list.add(1);
       encodeChar(c, node.getLeft(), list);
     }
   }
