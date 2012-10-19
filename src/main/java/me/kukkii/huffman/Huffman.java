@@ -11,6 +11,16 @@ public class Huffman{
   public static void main(String args[]){
     Node fork  = createTree(text);
     Encoder encoder = new Encoder(fork);
+
+    for(char c : fork.getCharSet()){
+      System.out.print(c + " ");
+      List<Integer> list = encoder.encodeChar(c);
+      for(int i : list){
+        System.out.print(i);
+      }
+      System.out.println();
+    }
+
     List<Integer> list = encoder.encode(text);
     for(int i : list){
       System.out.print(i);
@@ -35,15 +45,16 @@ public class Huffman{
       Node node = new Leaf(c, freq.getValue(c));
       treeSet.add(node);
     }
-    for(Node node : treeSet){
-      System.out.println(node.toString());
-    }
+//    for(Node node : treeSet){
+//      System.out.println(node.toString());
+//    }
     Node fork = null;
-    while(treeSet.first() != treeSet.last()){
+    while(treeSet.size() > 1){
       Node x = treeSet.first();
-      treeSet.remove(treeSet.first());
-      fork = new Fork(treeSet.first(), x);
-      treeSet.remove(treeSet.first());
+      treeSet.remove(x);
+      Node y = treeSet.first();
+      treeSet.remove(y);
+      fork = new Fork(x, y);
       treeSet.add(fork);
     }
     return fork;
