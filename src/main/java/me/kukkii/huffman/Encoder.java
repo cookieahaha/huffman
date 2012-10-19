@@ -36,7 +36,7 @@ public class Encoder{
     }
     else{
       list.add(1);
-      encodeChar(c, node.getLeft(), list);
+      encodeChar(c, node.getRight(), list);
     }
   }
 
