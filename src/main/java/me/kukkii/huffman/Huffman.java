@@ -26,6 +26,13 @@ public class Huffman{
       System.out.print(i);
     }
     System.out.println();
+
+    Decoder decoder = new Decoder(fork,list);
+    List<Character> charList = decoder.decode();
+    for(char i : charList){
+      System.out.print(i);
+    }
+    System.out.println();
   }
 
   public static Frequency count(String text){
