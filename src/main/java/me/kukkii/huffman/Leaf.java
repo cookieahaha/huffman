@@ -1,7 +1,7 @@
 package me.kukkii.huffman;
 import java.util.HashSet;
 
-public class Leaf extends Node{
+public class Leaf<T> extends Node<T>{
 
   private Character c;
 

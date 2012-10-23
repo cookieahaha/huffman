@@ -3,7 +3,7 @@ package me.kukkii.huffman;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Decoder{
+public class Decoder<T>{
 
   private Node node;
   private List<Integer> intList;
@@ -13,8 +13,8 @@ public class Decoder{
     this.intList = intList;
   }
 
-  public List<Character> decode(){
-    List<Character> charList = new ArrayList<Character>();
+  public List<T> decode(){
+    List<T> charList = new ArrayList<T>();
     int i = 0;
     while(i <  intList.size()){
       i = decodeInt(i, node, charList);
@@ -22,7 +22,7 @@ public class Decoder{
     return charList;
   }
 
-  private int decodeInt(int i, Node node, List<Character> charList){
+  private int decodeInt(int i, Node node, List<T> charList){
     if(node instanceof Leaf){
       charList.add(((Leaf)node).getChar());
       System.out.println(i + " " + ((Leaf)node).getChar());

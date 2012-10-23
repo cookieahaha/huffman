@@ -3,7 +3,7 @@ package me.kukkii.huffman;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Encoder{
+public class Encoder<T>{
 
   private Node node;
 
@@ -11,22 +11,22 @@ public class Encoder{
     this.node = node;
   }
 
-  public List<Integer> encode(List<Character> array){
+  public List<Integer> encode(List<T> array){
     List<Integer> list = new ArrayList<Integer>();
     for(int i=0; i<array.size(); i++){
-      Character c = array.get(i);
+      T c = array.get(i);
       encodeChar(c, node, list);
     }
     return list;
   }
 
-  public List<Integer> encodeChar(Character c){
+  public List<Integer> encodeChar(T c){
     List<Integer> list = new ArrayList<Integer>();
     encodeChar(c, node, list);
     return list;
   }
 
-  public void encodeChar(Character c, Node node, List<Integer> list){
+  public void encodeChar(T c, Node node, List<Integer> list){
     if(node instanceof Leaf){
       return;
     }

@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.Set;
 import java.util.List;
 
-public class TreeGenerater{
+public class TreeGenerater<T>{
 
-  private List<Character> array;
+  private List<T> array;
 
-  public TreeGenerater(List<Character> array){
+  public TreeGenerater(List<T> array){
     this.array = array;
   }
 
@@ -25,7 +25,7 @@ public class TreeGenerater{
   public Node createTree(){
     Frequency freq = count();
     TreeSet<Node> treeSet = new TreeSet<Node>();
-    for(Character c : freq.getKeySet()){
+    for(T c : freq.getKeySet()){
       Node node = new Leaf(c, freq.getValue(c));
       treeSet.add(node);
     }
@@ -46,13 +46,13 @@ public class TreeGenerater{
   }
 
   private static class Frequency{
-    HashMap<Character, Integer> map;
+    HashMap<T, Integer> map;
 
     public Frequency(){
-      map = new HashMap<Character, Integer>();
+      map = new HashMap<T, Integer>();
     }
 
-    public void add(Character c){
+    public void add(T c){
       Integer i = map.put(c, map.get(c));
       if(i == null){
         map.put(c, 1);
@@ -63,16 +63,16 @@ public class TreeGenerater{
     }
 
     public void displayAll(){
-      for(Character c : map.keySet()){
+      for(T c : map.keySet()){
         System.out.println(c + " " + map.get(c));
       }
     }
 
-    public Set<Character> getKeySet(){
+    public Set<T> getKeySet(){
       return map.keySet();
     }
 
-    public int getValue(Character c){
+    public int getValue(T c){
       return map.get(c);
     }
   }

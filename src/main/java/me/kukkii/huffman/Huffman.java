@@ -15,9 +15,9 @@ public class Huffman{
       array.add(i, text.charAt(i));
     }
 
-    TreeGenerater tg = new TreeGenerater(array);
-    Node fork  = tg.createTree();
-    Encoder encoder = new Encoder(fork);
+    TreeGenerater<Character> tg = new TreeGenerater<Character>(array);
+    Node<Character> fork  = tg.createTree();
+    Encoder<Character> encoder = new Encoder<Character>(fork);
 
     for(Character c : fork.getCharSet()){
       System.out.print(c + " ");
@@ -34,7 +34,7 @@ public class Huffman{
     }
     System.out.println();
 
-    Decoder decoder = new Decoder(fork,list);
+    Decoder<Character> decoder = new Decoder<Character>(fork,list);
     List<Character> charList = decoder.decode();
     for(Character i : charList){
       System.out.print(i);

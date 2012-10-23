@@ -1,7 +1,7 @@
 package me.kukkii.huffman;
 import java.util.Set;
 
-public abstract class Node implements Comparable<Node>{
+public abstract class Node<T> implements Comparable<Node<T>>{
 
   protected Node right;
   protected Node left;
