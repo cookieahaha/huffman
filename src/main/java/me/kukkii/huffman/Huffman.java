@@ -40,6 +40,9 @@ public class Huffman{
       System.out.print(i);
     }
     System.out.println();
+
+    System.out.println(text.length());
+    System.out.println(list.size()/8);
   }
 
 }
