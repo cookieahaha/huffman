@@ -3,19 +3,19 @@ import java.util.Set;
 
 public abstract class Node<T> implements Comparable<Node<T>>{
 
-  protected Node right;
-  protected Node left;
+  protected Node<T> right;
+  protected Node<T> left;
   protected int sum = 0;
-  protected Set<Character> charSet;
+  protected Set<T> charSet;
 
   public Node(){
   }
 
-  public Node getLeft(){
+  public Node<T> getLeft(){
     return left;
   }
 
-  public Node getRight(){
+  public Node<T> getRight(){
     return right;
   }
 
@@ -23,7 +23,7 @@ public abstract class Node<T> implements Comparable<Node<T>>{
     return sum;
   }
 
-  public Set<Character> getCharSet(){
+  public Set<T> getCharSet(){
     return charSet;
   }
 

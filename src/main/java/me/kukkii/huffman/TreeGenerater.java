@@ -13,8 +13,8 @@ public class TreeGenerater<T>{
     this.array = array;
   }
 
-  private Frequency count(){
-    Frequency f = new Frequency();
+  private Frequency<T> count(){
+    Frequency<T> f = new Frequency();
     for(int i=0; i<array.size(); i++){
          f.add(array.get(i));
     }
@@ -22,30 +22,30 @@ public class TreeGenerater<T>{
     return f;
   }
 
-  public Node createTree(){
-    Frequency freq = count();
-    TreeSet<Node> treeSet = new TreeSet<Node>();
+  public Node<T> createTree(){
+    Frequency<T> freq = count();
+    TreeSet<Node<T>> treeSet = new TreeSet<Node<T>>();
     for(T c : freq.getKeySet()){
-      Node node = new Leaf(c, freq.getValue(c));
+      Node<T> node = new Leaf<T>(c, freq.getValue(c));
       treeSet.add(node);
     }
-//    for(Node node : treeSet){
+//    for(Node<T> node : treeSet){
 //      System.out.println(node.toString());
 //    }
-    Node fork = null;
+    Node<T> fork = null;
     while(treeSet.size() > 1){
-      Node x = treeSet.first();
+      Node<T> x = treeSet.first();
       treeSet.remove(x);
-      Node y = treeSet.first();
+      Node<T> y = treeSet.first();
       treeSet.remove(y);
-      fork = new Fork(y, x);
+      fork = new Fork<T>(y, x);
       treeSet.add(fork);
       System.out.println(x + "    " +  y + "    " +  fork);
     }
     return fork;
   }
 
-  private static class Frequency{
+  private static class Frequency<T>{
     HashMap<T, Integer> map;
 
     public Frequency(){

@@ -3,17 +3,17 @@ import java.util.HashSet;
 
 public class Leaf<T> extends Node<T>{
 
-  private Character c;
+  private T c;
 
-  public Leaf(Character c, int sum){
+  public Leaf(T c, int sum){
     super();
     this.c = c;
     this.sum = sum;
-    charSet = new HashSet<Character>();
+    charSet = new HashSet<T>();
     charSet.add(c);
   }
 
-  public Character getChar(){
+  public T getChar(){
     return c;
   }
 

@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Decoder<T>{
 
-  private Node node;
+  private Node<T> node;
   private List<Integer> intList;
 
-  public Decoder(Node node, List<Integer> intList){
+  public Decoder(Node<T> node, List<Integer> intList){
     this.node = node;
     this.intList = intList;
   }
@@ -22,10 +22,10 @@ public class Decoder<T>{
     return charList;
   }
 
-  private int decodeInt(int i, Node node, List<T> charList){
+  private int decodeInt(int i, Node<T> node, List<T> charList){
     if(node instanceof Leaf){
-      charList.add(((Leaf)node).getChar());
-      System.out.println(i + " " + ((Leaf)node).getChar());
+      charList.add(((Leaf<T>)node).getChar());
+      System.out.println(i + " " + ((Leaf<T>)node).getChar());
       return i;
     }
     else if(intList.get(i) == 0){

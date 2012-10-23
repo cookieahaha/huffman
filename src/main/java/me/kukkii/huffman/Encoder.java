@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class Encoder<T>{
 
-  private Node node;
+  private Node<T> node;
 
-  public Encoder(Node node){
+  public Encoder(Node<T> node){
     this.node = node;
   }
 
@@ -26,7 +26,7 @@ public class Encoder<T>{
     return list;
   }
 
-  public void encodeChar(T c, Node node, List<Integer> list){
+  public void encodeChar(T c, Node<T> node, List<Integer> list){
     if(node instanceof Leaf){
       return;
     }
