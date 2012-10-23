@@ -9,7 +9,10 @@ public class Huffman{
   static String text = "kutd;iuyturefghj;ilukeyjtaherwu567kuytjhghrjykjathrgrtkyrjhrgrjkwlutyml09'=9-098u56y43tfnm,.iouiy;lw";
 
   public static void main(String args[]){
-    Node fork  = createTree(text);
+
+    char[] array = text.toCharArray();
+    TreeGenerater tg = new TreeGenerater(array);
+    Node fork  = tg.createTree();
     Encoder encoder = new Encoder(fork);
 
     for(char c : fork.getCharSet()){
@@ -21,7 +24,7 @@ public class Huffman{
       System.out.println();
     }
 
-    List<Integer> list = encoder.encode(text);
+    List<Integer> list = encoder.encode(array);
     for(int i : list){
       System.out.print(i);
     }
@@ -33,39 +36,6 @@ public class Huffman{
       System.out.print(i);
     }
     System.out.println();
-  }
-
-  public static Frequency count(String text){
-    char[] array = text.toCharArray();
-    Frequency f = new Frequency();
-    for(int i=0; i<array.length; i++){
-         f.add(array[i]);
-    }
-    //f.displayAll();
-    return f;
-  }
-
-  public static Node createTree(String text){
-    Frequency freq = count(text);
-    TreeSet<Node> treeSet = new TreeSet<Node>();
-    for(char c : freq.getKeySet()){
-      Node node = new Leaf(c, freq.getValue(c));
-      treeSet.add(node);
-    }
-//    for(Node node : treeSet){
-//      System.out.println(node.toString());
-//    }
-    Node fork = null;
-    while(treeSet.size() > 1){
-      Node x = treeSet.first();
-      treeSet.remove(x);
-      Node y = treeSet.first();
-      treeSet.remove(y);
-      fork = new Fork(y, x);
-      treeSet.add(fork);
-      System.out.println(x + "    " +  y + "    " +  fork);
-    }
-    return fork;
   }
 
 }

@@ -11,10 +11,10 @@ public class Encoder{
     this.node = node;
   }
 
-  public List<Integer> encode(String text){
+  public List<Integer> encode(char[] array){
     List<Integer> list = new ArrayList<Integer>();
-    for(int i=0; i<text.length(); i++){
-      char c = text.charAt(i);
+    for(int i=0; i<array.length; i++){
+      char c = array[i];
       encodeChar(c, node, list);
     }
     return list;
