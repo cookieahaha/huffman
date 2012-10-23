@@ -3,19 +3,20 @@ package me.kukkii.huffman;
 import java.util.TreeSet;
 import java.util.HashMap;
 import java.util.Set;
+import java.util.List;
 
 public class TreeGenerater{
 
-  private char[] array;
+  private List<Character> array;
 
-  public TreeGenerater(char[] array){
+  public TreeGenerater(List<Character> array){
     this.array = array;
   }
 
-  public Frequency count(){
+  private Frequency count(){
     Frequency f = new Frequency();
-    for(int i=0; i<array.length; i++){
-         f.add(array[i]);
+    for(int i=0; i<array.size(); i++){
+         f.add(array.get(i));
     }
     //f.displayAll();
     return f;
@@ -44,7 +45,7 @@ public class TreeGenerater{
     return fork;
   }
 
-  public class Frequency{
+  private static class Frequency{
     HashMap<Character, Integer> map;
 
     public Frequency(){

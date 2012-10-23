@@ -10,7 +10,11 @@ public class Huffman{
 
   public static void main(String args[]){
 
-    char[] array = text.toCharArray();
+    List<Character> array = new ArrayList<Character>();
+    for(int i=0; i<text.length(); i++){
+      array.add(i, text.charAt(i));
+    }
+
     TreeGenerater tg = new TreeGenerater(array);
     Node fork  = tg.createTree();
     Encoder encoder = new Encoder(fork);
