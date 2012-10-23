@@ -14,19 +14,19 @@ public class Encoder{
   public List<Integer> encode(List<Character> array){
     List<Integer> list = new ArrayList<Integer>();
     for(int i=0; i<array.size(); i++){
-      char c = array.get(i);
+      Character c = array.get(i);
       encodeChar(c, node, list);
     }
     return list;
   }
 
-  public List<Integer> encodeChar(char c){
+  public List<Integer> encodeChar(Character c){
     List<Integer> list = new ArrayList<Integer>();
     encodeChar(c, node, list);
     return list;
   }
 
-  public void encodeChar(char c, Node node, List<Integer> list){
+  public void encodeChar(Character c, Node node, List<Integer> list){
     if(node instanceof Leaf){
       return;
     }

@@ -14,7 +14,7 @@ public class Fork extends Node{
 
   public String toString(){
     String s = "";
-    for(char c : getCharSet()){
+    for(Character c : getCharSet()){
       s += c;
     }
     return s + " " + "(" + sum + ")";

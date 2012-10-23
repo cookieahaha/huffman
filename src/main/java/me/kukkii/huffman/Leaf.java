@@ -3,9 +3,9 @@ import java.util.HashSet;
 
 public class Leaf extends Node{
 
-  private char c;
+  private Character c;
 
-  public Leaf(char c, int sum){
+  public Leaf(Character c, int sum){
     super();
     this.c = c;
     this.sum = sum;
@@ -13,7 +13,7 @@ public class Leaf extends Node{
     charSet.add(c);
   }
 
-  public char getChar(){
+  public Character getChar(){
     return c;
   }
 

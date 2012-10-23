@@ -25,7 +25,7 @@ public class TreeGenerater{
   public Node createTree(){
     Frequency freq = count();
     TreeSet<Node> treeSet = new TreeSet<Node>();
-    for(char c : freq.getKeySet()){
+    for(Character c : freq.getKeySet()){
       Node node = new Leaf(c, freq.getValue(c));
       treeSet.add(node);
     }
@@ -52,7 +52,7 @@ public class TreeGenerater{
       map = new HashMap<Character, Integer>();
     }
 
-    public void add(char c){
+    public void add(Character c){
       Integer i = map.put(c, map.get(c));
       if(i == null){
         map.put(c, 1);
@@ -63,7 +63,7 @@ public class TreeGenerater{
     }
 
     public void displayAll(){
-      for(char c : map.keySet()){
+      for(Character c : map.keySet()){
         System.out.println(c + " " + map.get(c));
       }
     }
@@ -72,7 +72,7 @@ public class TreeGenerater{
       return map.keySet();
     }
 
-    public int getValue(char c){
+    public int getValue(Character c){
       return map.get(c);
     }
   }
